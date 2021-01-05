@@ -12,13 +12,22 @@ def cb(message):
 def cb2(message):
     global n
     global t
+    
+    rospy.sleep(0.1)
 
     t = message.data
-    n -= t
+    if not n == 0:
+        n -= t
+
+    else:
+        pass
 
     for i in range(t):
         n += 1
         print('cpu:', n)
+        if n == 21:
+            print('cpu lose')
+            break
     print('----------------')
 
 

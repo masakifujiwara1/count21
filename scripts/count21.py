@@ -6,7 +6,7 @@
 import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from test import Ui_Dialog
+from gui import Ui_Dialog
 # ROS。
 import rospy
 from std_msgs.msg import Int32
@@ -90,9 +90,12 @@ class Test(QDialog):
                 self.cpu()
 
     def easy_turn(self):
+        global flag
+
         print('あなたは後攻です')
-        print('start:', n)
+        print(' ')
         flag = 1
+        self.cpu()
 
     def hard_turn(self):
         print('あなたは先行です')
@@ -106,12 +109,15 @@ class Test(QDialog):
         self.pub2.publish(t)
 
     def GM(self):
+        rospy.sleep(0.1)
         print('あなたのターンです')
         print('1～3のボタンを一つ押してください')
 
     def cpu(self):
         global n
         global phase
+        global flag
+        global t
 
         if flag == 1:#cpu senkou
             #easy
@@ -120,8 +126,10 @@ class Test(QDialog):
                 n += 1
                 if n == 21:
                     self.lose1()
-                    flag == 4
+                    flag = 4
             self.Publisher(n)
+            if flag == 4:
+                pass
             self.Publisher2(t)
             if not flag == 4:
                 self.GM()
@@ -133,7 +141,7 @@ class Test(QDialog):
                 n += 1
                 if n == 21:
                     self.lose1()
-                    flag == 4
+                    flag = 4
             phase += 1
             self.Publisher(n)
             self.Publisher2(t)
@@ -141,9 +149,8 @@ class Test(QDialog):
                 self.GM()
 
     def random(self):
-        choice = list(range(1, 4))
-        w = [2,2,1]
-        t = random.choices(choice, k = 1, weights = w)
+        global t
+        t = random.randint(1,3)
 
     def lose(self):
         print('-------------------------------')
@@ -151,9 +158,9 @@ class Test(QDialog):
         print('ウィンドウを閉じてください')
 
     def lose1(self):
-        print('-------------------------------')
         print('player win')
         print('ウィンドウを閉じてください')
+        print('-------------------------------')
         
 
 
