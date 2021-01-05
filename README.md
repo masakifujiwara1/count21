@@ -21,7 +21,7 @@ guiを用いてcount21ゲームをできるROSパッケージを作成しまし�
 
 ## インストール方法
 
-### ソースからビルドする方法
+
 
 - [ROS Wiki](http://wiki.ros.org/ja/kinetic/Installation/Ubuntu)を参照しROSをインストールします。
 
