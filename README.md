@@ -1,6 +1,6 @@
 # count21ゲーム
 ロボットシステム学の課題2で作成したものです。  
-guiを用いたcount21ゲームをできるROSパッケージを作成しました。
+guiを用いてcount21ゲームをできるROSパッケージを作成しました。
 ## count21とは？
 - ２１ゲームは１から順番に交互に数字を言い２１を言わされた方が負けというシンプルなゲームです。
 - ただし１度に言える数字は３つまでです。
@@ -14,36 +14,44 @@ guiを用いたcount21ゲームをできるROSパッケージを作成しまし�
 以下の環境にて動作確認を行っています。  
   
 - OS: Ubuntu 20.04.1 LTS
-- ROs: Noetic
+- ROS: Noetic
 - python: 3.8.5
 
-## 使い方
+
+## インストール方法
+
+### ソースからビルドする方法
+
+- [ROS Wiki](http://wiki.ros.org/ja/kinetic/Installation/Ubuntu)を参照しROSをインストールします。
+
+- `git`を使用して本パッケージをダウンロードします。
+
+  ```bash
+  cd ~/catkin_ws/src
+  git clone https://github.com/masakifujiwara1/count21.git
+  ```
+- `catkin_make`を使用して本パッケージをビルドします。
+
+  ```bash
+  cd ~/catkin_ws && catkin_make
+  source ~/catkin_ws/devel/setup.bash
+  ```
+
+## 実行
 ```bash
-git clone https://github.com/masakifujiwara1/count21.git  
-cd myled  
-make  
-sudo insmod myled.ko  
-sudo chmod 666 /dev/myled0  
-echo (0~3) > /dev/myled0
+roscore
+rosrun count21 cpu.py
+rosrun count21 count21.py
 ```
-- pin番号22 : GPIO 25を使ってください。
-- 使用した回路図  
-![スクリーンショット 2020-11-29 175226](https://user-images.githubusercontent.com/72371743/100537400-a9683380-326b-11eb-9b56-2a43d93f53ac.png)
+上記のコマンドを実行したら、それ以降は出力される指示に従ってください。
 
-## 内容
-- echo 0 の時：LED消灯
-- echo 1 の時：LED点灯
-- echo 2 の時:モールス信号のSOS（・・・ －－－ ・・・）を再現したLEDの点滅
-<img src="https://user-images.githubusercontent.com/72371743/100539171-eafedb80-3277-11eb-8cd0-c2c7a193b4a7.gif"  width="500px">  
 
-- echo 3 の時：LEDのpwm制御
+
 <img src="https://user-images.githubusercontent.com/72371743/100539304-e38c0200-3278-11eb-998f-0fcd046b23b5.gif" width="500px">
 
   
-## pwm制御について
-- 4sかけてduty比が0%→100%→0%になるようになっています。
-- 10msでduty比が0.5%増減→1sで50％ほど変化
-## youtube
+
+## Movie
 https://www.youtube.com/watch?v=1XYUYnG7E9o&ab_channel=%E5%8B%95%E7%94%BB%E4%BF%9D%E7%AE%A1%E5%BA%AB
 ## LICENSE
 - [BSD 3-Clause License](https://github.com/masakifujiwara1/count21/blob/master/LICENSE)
