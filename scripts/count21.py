@@ -98,7 +98,7 @@ class Test(QDialog):
         self.cpu()
 
     def hard_turn(self):
-        print('あなたは先行です')
+        print('あなたは先攻です')
         print('1～3のボタンを一つ押してください')
         print('start:', n)
 
