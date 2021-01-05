@@ -80,5 +80,5 @@ class Ui_Dialog(object):
         self.pushButton_4.setText(_translate("Dialog", "easy"))
         self.pushButton_5.setText(_translate("Dialog", "hard"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Dialog", "control"))
-        self.label_3.setText(_translate("Dialog", "TextLabel"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Dialog", "rule"))
+        self.label_3.setText(_translate("Dialog", "-21ゲームとは？-\n21ゲームは1から順番に交互に数字を言い21を\n言わされたほうが負けです。\n-ルール-\n1度に言える数字は3つまでです。\n-例-\n先攻「1・2・3」> 後攻「4・5」\n~~~~~~\n先攻「19・20」> 後攻「21」\n *後攻の負け*"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Dialog", "help"))
