@@ -53,9 +53,9 @@ rosrun count21 count21.py
 
   
 
-## Movie
+## Youtube
 https://www.youtube.com/watch?v=-DQhdrYhHj8
 ## LICENSE
-- [BSD 3-Clause License](https://github.com/masakifujiwara1/count21/blob/master/LICENSE)
+[BSD 3-Clause License](https://github.com/masakifujiwara1/count21/blob/master/LICENSE)
 ## 参考
-- https://qiita.com/hosizame/items/051a043f19e4955423f2
+https://qiita.com/hosizame/items/051a043f19e4955423f2
