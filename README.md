@@ -1,14 +1,25 @@
-# デバイスドライバーの改造
-ロボットシステム学の課題で作ったものです。  
-ubuntuでLEDが点灯、消灯するデバイスドライバーを作成し、少し手を加えたものです。
+# count21ゲーム
+ロボットシステム学の課題2で作成したものです。  
+guiを用いたcount21ゲームをできるROSパッケージを作成しました。
+## count21とは？
+- ２１ゲームは１から順番に交互に数字を言い２１を言わされた方が負けて罰ゲームというシンプルなゲームです。
+- ただし１度に言える数字は３つまでです。
+### 例
+- 先攻「１・２・３」
+- 後攻「４・５」
+- ・・・
+- 先攻「19・20」
+- 後攻「21」>> 負け
 ## 動作環境
 以下の環境にて動作確認を行っています。  
   
-- OS:Ubuntu 18.04 LTS
-- Raspberry Pi3 Model B
+- OS: Ubuntu 20.04.1 LTS
+- ROs: Noetic
+- python: 3.8.5
+
 ## 使い方
 ```bash
-git clone https://github.com/masakifujiwara1/myled.git  
+git clone https://github.com/masakifujiwara1/count21.git  
 cd myled  
 make  
 sudo insmod myled.ko  
@@ -28,17 +39,13 @@ echo (0~3) > /dev/myled0
 - echo 3 の時：LEDのpwm制御
 <img src="https://user-images.githubusercontent.com/72371743/100539304-e38c0200-3278-11eb-998f-0fcd046b23b5.gif" width="500px">
 
-## モールス信号について
-- モールス信号の再現は無線局運用規則 別表第一号 モールス符号(第十二条関係)に則って再現しています。  
-以下本文の一部抜粋  
-符号の線及び間隔  
-1　一線の長さは、三点に等しい。  
-2　一符号を作る各線又は点の間隔は、一点に等しい。  
-3　二符号の間隔は、三点に等しい。  
-4　二語の間隔は、七点に等しい。  
-出典：[総務省　電波利用ホームページ](https://www.tele.soumu.go.jp/horei/reiki_honbun/72393000001.html)  
+  
 ## pwm制御について
 - 4sかけてduty比が0%→100%→0%になるようになっています。
 - 10msでduty比が0.5%増減→1sで50％ほど変化
 ## youtube
 https://www.youtube.com/watch?v=1XYUYnG7E9o&ab_channel=%E5%8B%95%E7%94%BB%E4%BF%9D%E7%AE%A1%E5%BA%AB
+## LICENSE
+- [BSD 3-Clause License](https://github.com/masakifujiwara1/count21/blob/master/LICENSE)
+## 参考
+- https://qiita.com/hosizame/items/051a043f19e4955423f2
