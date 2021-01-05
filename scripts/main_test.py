@@ -16,60 +16,76 @@ import random
 n = 0
 t = 0
 flag = 0
-phase = 0
+phase = 1
 
 class Test(QDialog):
     def __init__(self,parent=None):
-        # GUI。
+        #GUI
         super(Test, self).__init__(parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
-        # ROS。pubの設定。
+        #pub
         self.pub = rospy.Publisher('count/data',Int32,queue_size=1)
         self.pub2 = rospy.Publisher('number/times',Int32,queue_size=1)
 
     def slot1(self):
         self.ui.label_2.setText('easy')
         print('easyが選択されました')
+        print(' ')
         self.easy_turn()
 
 
     def slot2(self):
         self.ui.label_2.setText('hard')
         print('hardが選択されました')
+        print(' ')
         self.hard_turn()
 
     def plus1(self):
+            global n
+            global flag
+
             n += 1
             print('player:', n)
             if n == 21:
                 self.lose()
                 flag = 4
+            print('-------------------------------')
             self.ui.label.setText('入力 : 1')
             if not flag == 4:
                 self.cpu()
 
     def plus2(self):
         #flag:0 > senkou
-            for i range(2):
+            global n
+            global flag
+
+            for i in range(2):
                 n += 1
                 print('player:', n)
+                if n == 21:
+                    self.lose()
+                    flag = 4
+                    break
+            print('-------------------------------')
             self.ui.label.setText('入力 : 2')
-            if n == 21:
-                self.lose()
-                flag == 4
             if not flag == 4:
                 self.cpu()
 
     def plus3(self):
-            for i range(3):
+            global n
+            global flag
+
+            for i in range(3):
                 n += 1
                 print('player:', n)
+                if n == 21:
+                    self.lose()
+                    flag = 4
+                    break
+            print('-------------------------------')
             self.ui.label.setText('入力 : 3')
-            if n == 21:
-                self.lose()
-                flag == 4
             if not flag == 4:
                 self.cpu()
 
@@ -80,8 +96,8 @@ class Test(QDialog):
 
     def hard_turn(self):
         print('あなたは先行です')
-        print('start:', n)
         print('1～3のボタンを一つ押してください')
+        print('start:', n)
 
     def Publisher(self, n):
         self.pub.publish(n)
@@ -94,6 +110,9 @@ class Test(QDialog):
         print('1～3のボタンを一つ押してください')
 
     def cpu(self):
+        global n
+        global phase
+
         if flag == 1:#cpu senkou
             #easy
             self.random()
@@ -127,10 +146,12 @@ class Test(QDialog):
         t = random.choices(choice, k = 1, weights = w)
 
     def lose(self):
+        print('-------------------------------')
         print('player lose')
         print('ウィンドウを閉じてください')
 
     def lose1(self):
+        print('-------------------------------')
         print('player win')
         print('ウィンドウを閉じてください')
         
@@ -139,7 +160,9 @@ class Test(QDialog):
 if __name__ == '__main__':
     rospy.init_node('test')
     rospy.loginfo('count game started')
+    print(' ')
     print('初めに難易度を選択してください')
+    print(' ')
     app = QApplication(sys.argv)
     window = Test()
     window.show()
