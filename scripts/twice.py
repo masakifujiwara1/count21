@@ -3,17 +3,29 @@ import rospy
 from std_msgs.msg import Int32
 
 n = 0
+t = 0
 
 
 def cb(message):
     global n
-    n = message.data*2
+    n = message.data
+    
+def cb2(message):
+    global t
+    t = message.data
+    n -= t
+
+    for i range(t):
+        n += 1
+        print('cpu:', n)
 
 
-rospy.init_node('twice')
-sub = rospy.Subscriber('count_up', Int32, cb)
-pub = rospy.Publisher('twice', Int32, queue_size=1)
+
+
+
+rospy.init_node('cpu')
+sub = rospy.Subscriber('count/data', Int32, cb)
+sub1 = rospy.Subscriber('number/times', Int32, cb2)
 rate = rospy.Rate(10)
 while not rospy.is_shutdown():
-    pub.publish(n)
     rate.sleep()
