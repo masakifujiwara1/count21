@@ -16,11 +16,12 @@ def cb2(message):
     rospy.sleep(0.1)
 
     t = message.data
+
     if not n == 0:
         n -= t
+        if n == 0:
+            print('start: 0')
 
-    else:
-        pass
 
     for i in range(t):
         n += 1
