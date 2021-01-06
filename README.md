@@ -20,7 +20,8 @@ guiを用いてcount21ゲームをできるROSパッケージを作成しまし�
 - OS: Ubuntu 20.04.1 LTS
 - ROS: Noetic
 - python: 3.8.5
-
+## Youtube
+https://www.youtube.com/watch?v=-DQhdrYhHj8
 
 ## インストール方法
 
@@ -56,8 +57,7 @@ rosrun count21 count21.py
 
   
 
-## Youtube
-https://www.youtube.com/watch?v=-DQhdrYhHj8
+
 ## LICENSE
 [BSD 3-Clause License](https://github.com/masakifujiwara1/count21/blob/master/LICENSE)
 ## 参考
