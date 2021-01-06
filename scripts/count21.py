@@ -174,3 +174,6 @@ if __name__ == '__main__':
     window = Test()
     window.show()
     sys.exit(app.exec_())
+
+# Copyright 2021 Masaki Fujiwara
+# Released under the BSD License.
