@@ -20,8 +20,9 @@ guiを用いてcount21ゲームをできるROSパッケージを作成しまし�
 - OS: Ubuntu 20.04.1 LTS
 - ROS: Noetic
 - python: 3.8.5
+- PyQt5: 5.12.8
 ## 使用したもの
-- GUI作成: pyqt5
+- GUI作成: Qt Designer
 ## Youtube
 デモ動画はこちらです。  
 https://www.youtube.com/watch?v=-DQhdrYhHj8
