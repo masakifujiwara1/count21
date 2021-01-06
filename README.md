@@ -21,7 +21,7 @@ guiを用いてcount21ゲームをできるROSパッケージを作成しまし�
 - ROS: Noetic
 - python: 3.8.5
 ## Youtube
-デモ動画はこちらです。
+デモ動画はこちらです。  
 https://www.youtube.com/watch?v=-DQhdrYhHj8
 
 ## インストール方法
