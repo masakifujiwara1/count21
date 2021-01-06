@@ -51,7 +51,7 @@ rosrun count21 count21.py
 上記のコマンドを実行したら、それ以降は出力される指示に従ってください。
 
 
-- 実際に動かしている様子
+- 実際にプレイしている様子
 <img src="https://user-images.githubusercontent.com/72371743/103683789-fdcea380-4fcd-11eb-81b3-faa364dbd27d.gif" width="500px">
 
   
